@@ -1,0 +1,8 @@
+{% load i18n %}
+{{ pub.info }}
+{% if pub.citetion_count %}
+<a href="{{ pub.citetion_link }}">
+  [{{ pub.citetion_count}}
+  {% ifequal pub.citetion_count 1 %}{% trans "Citation" %}{% else %}
+  {% trans "Citations" %}{% endifequal %}] </a>
+{% endif %}

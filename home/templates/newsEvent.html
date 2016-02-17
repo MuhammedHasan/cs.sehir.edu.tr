@@ -1,0 +1,31 @@
+{% extends 'base.html' %} {% load i18n %} {% block title %} {{ news.title }} - {% trans "News and Events" %} {% endblock %} {% block content %}
+<section id="news">
+  <div class="container">
+    <div class="box first">
+      <div class="center">
+        <h3>{{ news.title }}</h3>
+        <p>
+          {{ news.date }}
+        </p>
+        {% if news.poster %}
+        <div class="row small-gap">
+          <img src="{{ MEDIA_URL }}{{ news.poster }}" class="img-responsive img-thumbnail" />
+        </div>
+        {% endif %}
+      </div>
+      <p>
+        {{ news.description|safe|linebreaks}}
+      </p>
+      {% if news.link %}
+      <p>
+        {% trans "For more details, please" %}
+        <a href='{{ news.link }}'>{% trans "click here" %}</a>.
+      </p>
+      {% endif %}
+    </div>
+    <!--/.box-->
+  </div>
+  <!--/.container-->
+</section>
+<!--/#portfolio-->
+{% endblock %}

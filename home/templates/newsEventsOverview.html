@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}
+{% trans "News and Events" %}
+{% endblock %}
+
+{% block content %}
+<section id="news-overview">
+  <div class="container">
+    <div class="box first">
+      <div class="center">
+        <h3 class="small-gap">
+          {% trans "News and Events" %}</h3>
+        {% for i in news %}
+        <div class="item">
+          <div class="row">
+            {% for j in i %}
+            <div class="col-md-4 col-sm-6">
+              <div class="center">
+                <a href="{% url 'home:newsEvent' j.id %}">
+                  {% if j.poster %}
+                  <img src="{{ MEDIA_URL }}{{ j.poster }}" class="img-responsive img-thumbnail max-img-hei"/>
+                {% else %}
+                  <br>
+                  <br>
+                  {% endif %}
+                  <h4>
+                    {{ j.title }}
+                  </h4>
+                  <p>
+                    {{ j.date }}
+                  </p>
+                  <p>{{ j.description|striptags|slice:":180" }}...</p>
+                </a>
+              </div>
+            </div>
+            <!--/.col-md-4-->
+            {% endfor %}
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    <!--/.box-->
+  </div>
+  <!--/.container-->
+</section>
+<!--/#portfolio-->
+{% endblock %}

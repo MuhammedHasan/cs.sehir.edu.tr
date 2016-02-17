@@ -1,0 +1,22 @@
+{% load i18n %}
+<h4 class="bold" id="{{ i.title }}">
+  {{ i.title }}
+</h4>
+{% for j in i.sub_set.all %}
+<div class="panel-group" id="{{ i.title }}">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#{{ i.title }}" href="#{% spaceless %}{{ i.title.split|join:"-" }}-{{ j.title.split|join:"-" }}{% endspaceless %}">
+          {% trans j.title %}
+        </a>
+      </h4>
+    </div>
+    <div id="{% spaceless %}{{ i.title.split|join:"-" }}-{{ j.title.split|join:"-" }}{% endspaceless %}" class="panel-collapsex collapse">
+      <div class="panel-body">
+        {{ j.text|safe }}
+      </div>
+    </div>
+  </div>
+</div>
+{% endfor %}

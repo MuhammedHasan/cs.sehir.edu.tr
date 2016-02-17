@@ -1,0 +1,73 @@
+{% extends 'base.html' %} {% load i18n %}
+
+{% block title %}
+  {% trans "Research Projects" %}
+{% endblock %}
+
+ {% block content %}
+<section>
+  <div class="container">
+    <div class="box first">
+      <div class="center small-gap">
+        <h3> {% trans "Research Projects" %} </h3>
+      </div>
+      <!--/.center-->
+      <div class="row summary">
+        <div class="col-md-12 small-gap">
+          <div class="alert blacklist small-gap">
+            <h4 class="bold">
+              {% trans "Ongoing Projects" %}
+            </h4>
+          </div>
+          <ul>
+            {% for i in ongoing %}
+            <li>
+              <a href="#{{ i.title }}"> {{ i.title }}</a>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+      <div class="row summary">
+        <div class="col-md-12 small-gap">
+          <div class="alert blacklist small-gap">
+            <h4 class="bold">
+              {% trans "Completed Projects" %}
+            </h4>
+          </div>
+          <ul>
+            {% for i in completed %}
+            <li>
+              <a href="#{{ i.title }} "> {{ i.title }}</a>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+      <div class="row ">
+        <div class="panel panel-default gap ">
+          <div class="panel-heading ">
+            <h4 class="bold">{% trans "Project Summaries" %} - {% trans "Ongoing Projects" %}</h4>
+          </div>
+          <ul class="list-group ">
+            {% for i in ongoing %} {% include 'partials/researchlist.html' %} {% endfor %}
+          </ul>
+        </div>
+      </div>
+      <div class="row ">
+        <div class="panel panel-default ">
+          <div class="panel-heading ">
+            <h4 class="bold">{% trans "Project Summaries" %} - {% trans "Completed Projects" %}</h4>
+          </div>
+          <ul class="list-group ">
+            {% for i in completed %} {% include 'partials/researchlist.html' %} {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!--/.box-->
+  </div>
+  <!--/.container-->
+</section>
+<!--/#portfolio-->
+{% endblock %}

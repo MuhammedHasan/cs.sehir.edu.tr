@@ -1,0 +1,42 @@
+{% load i18n %}
+<li class="list-group-item">
+<a class="redirect" id="{{ i.title }}"></a>
+<h4 class="bold">
+  {{ i.title }}
+</h4>
+<p>
+  {{ i.start_date }}
+  -
+  {{ i.end_date }}
+</p>
+<p>
+  <span class="bold">{% trans "Funding Institution" %}:</span>
+  {{ i.funding_institution }}
+</p>
+<p>
+  <span class="bold">
+    {% trans "Principal Investigator" %}:
+  </span>
+  <a href="/profile/{{ i.principal_investigator.id }}/{{ i.principal_investigator.first_name }}-{{ i.principal_investigator.last_name }}/">
+    {{ i.principal_investigator }}
+  </a>
+</p>
+<p>
+  {% with i.researchers.all as researchers %}
+  {% if researchers %}
+  <span class="bold">
+    {% trans "Researcher(s) " %}:
+  </span>
+  {% for j in researchers %}
+  <a href="/profile/{{ j.id }}/{{ j.first_name }}-{{ j.last_name }}/">
+    {{ j }}
+  </a>
+  {% endfor %}
+  {% endif %}
+  {% endwith %}
+</p>
+{% if i.poster %}
+<img class="img-responsive img-thumbnail small-gap" src="{{ MEDIA_URL }}{{ i.poster }}">
+{% endif %}
+<p class="gap">{{ i.abstract }}</p>
+</li>

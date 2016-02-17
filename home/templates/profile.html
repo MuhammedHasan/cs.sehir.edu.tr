@@ -1,0 +1,186 @@
+{% extends 'base.html' %} {% load i18n %} {% block title %} {{ faculty.first_name }} {{ faculty.middle_name }} {{ faculty.last_name }} {% endblock %} {% block content %}
+<section id="profile">
+  <div class="container">
+    <div class="box first">
+      <div class="row gap">
+        <div class="col-md-3">
+          <div class="row">
+            <img class="img-responsive img-thumbnail img-circle" src="{{ MEDIA_URL }}{{ faculty.image }}" alt="">
+          </div>
+          <div class="row links center">
+            <div id="links">
+              {% if faculty.linkedin %}
+              <a href="{{ faculty.linkedIn }}">
+                <img src="/static/home/img/logo/linkedin.png">
+              </a>
+              {% endif %} {% if faculty.twitter %}
+              <a href="{{ faculty.twitter }}">
+                <img src="/static/home/img/logo/twitter.png">
+              </a>
+              {% endif %} {% if faculty.google_scholar %}
+              <a href="{{ faculty.google_scholar }}">
+                <img src="/static/home/img/logo/googleScholar.png">
+              </a>
+              {% endif %} {% if faculty.DBLP %}
+              <a href="{{ faculty.DBLP }}">
+                <img src="/static/home/img/logo/dblp.png">
+              </a>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+        <h3>
+          {{ faculty.first_name }} {{ faculty.middle_name }} {{ faculty.last_name }}
+        </h3>
+        <p class="bold">
+          {% trans faculty.title %}
+
+          {% if faculty.visit %}
+            ({% trans "Visiting" %})
+          {% endif %}
+
+          {% if faculty.leave %}
+            ({% trans "On Leave" %})
+          {% endif %}
+
+	        {% if faculty.chair %}
+            ({% trans "Chair" %})
+          {% endif %}
+        </p>
+        <p class="italic">{% trans "PhD" %}, {{ faculty.phd }}</p>
+        <p>
+          <a href="mailto:{{ faculty.email }}">
+            {{ faculty.email }}
+          </a>
+        </p>
+        <p>
+          {% trans "Office" %}: {{ faculty.office }}
+        </p>
+        <p>
+          {% trans "Phone" %}: {{ faculty.phone }}
+        </p>
+        {% if faculty.website %}
+        <p>
+          <a href="{{ faculty.website }}">{% trans "Personal Website" %}</a>
+        </p>
+        {% endif %} {% if faculty.CV %}
+        <p>
+          CV:
+          <a href="/media/{{faculty.CV}}">
+            <img class="cv" src="/static/home/img/down.png" />
+          </a>
+        </p>
+        {% endif %}
+      </div>
+      <div class="row">
+        <p>
+          <a>{% trans "Bio" %}:</a> {{ faculty.bio }}
+        </p>
+
+        <p>
+          <a>{% trans "Research Interests" %}:</a> {{ faculty.interest }}
+        </p>
+        <p>
+          <a>{% trans "Funded projects" %}:</a>
+          <ul>
+            {% for i in inves_projects %}
+            <li>
+              <a href="{% url 'home:research' %}#{{ i.title }}">
+                {{ i.title }}, {{ i.start_date }} - {{ i.end_date }}, {{ i.funding_institution }}
+              </a>
+            </li>
+            {% endfor %} {% for i in research_projects %}
+            <li>
+              <a href="{% url 'home:research' %}#{{ i.title }}">
+                {{ i.title }}, {{ i.start_date }} - {{ i.end_date }}, {{ i.funding_institution }}
+              </a>
+            </li>
+            {% endfor %}
+          </ul>
+        </p>
+        {% with faculty.researchgroup_set.all as groups %} {% if groups %}
+        <p>
+          <a>{% trans "Member of research Groups" %}:</a>
+          <ul>
+            {% for i in groups %}
+            <li>
+              <a href="{{ i.website }}">
+                {{ i.name }}
+              </a>
+            </li>
+            {% endfor %}
+          </ul>
+        </p>
+        {% endif %} {% endwith %}
+      </div>
+      <div class="row">
+        <a class="bold">{% trans "Publications" %}:</a>
+        <ul class="nav nav-tabs" role="tablist">
+          <li role="presentation" class="active">
+            <a href="#flat" aria-controls="flat" role="tab" data-toggle="tab">{% trans "Flat List" %}</a>
+          </li>
+          <li role="presentation">
+            <a href="#year" aria-controls="year" role="tab" data-toggle="tab">{% trans "Group by Year" %}</a>
+          </li>
+          <li role="presentation">
+            <a href="#publication" aria-controls="publication" role="tab" data-toggle="tab"> {% trans "Group by Publication Type" %} </a>
+          </li>
+          <li role="presentation">
+            <a href="#citetion" aria-controls="citetion" role="tab" data-toggle="tab">{% trans "Sort by Citation Count" %}</a>
+          </li>
+        </ul>
+        <!-- Tab panes -->
+        <div class="tab-content pubs">
+          <div role="tabpanel" class="tab-pane active pubs" id="flat">
+            <ul>
+              {% for i in flat_pub %}
+              <li>
+                {{counter.increase }}. {% include 'partials/pub.html' with pub=i %}
+              </li>
+              {% endfor %} {{counter.restart }}
+            </ul>
+          </div>
+          <div role="tabpanel" class="tab-pane" id="year">
+            {% for k, v in year_pub %}
+            <p>{{ k }}</p>
+            <ul>
+              {% for j in v %}
+              <li>
+                {{counter.increase }}. {% include 'partials/pub.html' with pub=j %}
+              </li>
+              {% endfor %}
+            </ul>
+            {% endfor %}{{counter.restart }}
+          </div>
+          <div role="tabpanel" class="tab-pane" id="publication">
+            {% for k, v in type_pub.items %} {% with k|add:'s' as typeof %}
+            <p> {% trans typeof %}</p>
+            {% endwith %}
+            <ul>
+              {% for j in v %}
+              <li>
+                {{counter.increase }}. {% include 'partials/pub.html' with pub=j %}
+              </li>
+              {% endfor %}
+            </ul>
+            {% endfor %}{{counter.restart }}
+          </div>
+          <div role="tabpanel" class="tab-pane" id="citetion">
+            <ul>
+              {% for i in citetion_pub %}
+              <li>
+                {{counter.increase }}. {% include 'partials/pub.html' with pub=i %}
+              </li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+        <!-- / Tab panes -->
+      </div>
+    </div>
+    <!--/.box-->
+  </div>
+  <!--/.container-->
+</section>
+<!--/#portfolio-->
+{% endblock %}

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% load i18n %}
+  {% load without_lan %}
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/static/home/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/home/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/static/home/css/prettyPhoto.css" rel="stylesheet">
+    <link href="/static/home/css/main.css" rel="stylesheet">
+    <title>{% block title %}
+      {% endblock %}
+      -
+      {% trans "Computer Science" %}
+      -
+      {% trans "Istanbul Sehir University" %}</title>
+  </head>
+
+  <body data-spy="scroll" data-target="#navbar" data-offset="0">
+    <header id="header" role="banner">
+      <div class="container" id="language">
+        <div class="box">
+          <div class="row">
+            <div class="col-md-12">
+              <div id="">
+                <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
+                  <input name="next" type="hidden" value="/"/>
+                  <input name="language" type="hidden" value="en"/>
+                  <input name="next" type="hidden" value="{{ request.path|withoutLan }}"/>
+                  <input type="submit" value="EN" class="btn btn-default"/>
+                </form>
+                <a>|</a>
+                <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
+                  <input name="next" type="hidden" value="/"/>
+                  <input name="language" type="hidden" value="tr"/>
+                  <input name="next" type="hidden" value="{{ request.path|withoutLan }}"/>
+                  <input type="submit" value="TR" class="btn btn-default"/>
+                </form>
+                <a href="{% url 'identity:login' %}">
+                  {% trans "Login" %}
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div id="navbar" class="navbar navbar-default">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <div class="row">
+              <div class="col-xs-12">
+                <img src="/static/home/img/logo/csLogo.png" alt="" class="logo"/>
+                <span href="{% url 'home:index' %}" class="lead title">
+                  <a href="{% url 'home:index' %}">
+                    <strong>
+                      {% trans "Department of <br> Computer Science" %}
+                    </strong>
+                  </a>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="collapse navbar-collapse">
+            <div class="row">
+              <div class="col-xs-12">
+                <ul class="nav navbar-nav navbar-right">
+                  <li class="active">
+                    <a href="{% url 'home:index' %}">
+                      <i class="icon-home"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="{% url 'home:about' %}">
+                      {% trans "About" %}
+                    </a>
+                  </li>
+                  <li>
+                    <a href="{% url 'home:people' %}">
+                      {% trans "People" %}</a>
+                  </li>
+                  <li>
+                    <a href="{% url 'home:programOverview' %}">
+                      {% trans "Programs" %}
+                    </a>
+                  </li>
+                  <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                      {% trans "Research" %}
+                      <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li>
+                        <a href="{% url 'home:research' %}">
+                          {% trans "Research Projects" %}
+                        </a>
+                      </li>
+                      <li role="separator" class="divider"></li>
+                      <li>
+                        <a href="{% url 'home:researchGroup' %}">
+                          {% trans "Research Groups" %}
+                        </a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a href="{% url 'home:newsEventsOVerview' %}">
+                      {% trans "News" %}</a>
+                  </li>
+                  <li class="hidden-sm hidden-xs">
+                    <p id="logo-university">
+                      <a class="navbar-brand" href="http://sehir.edu.tr/"></a>
+                    </p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!--/#header-->
+    {% block content %}
+    {% endblock %}
+    <section id="contact">
+      <div class="container">
+        <div class="box last">
+          <div class="row">
+            <div class="col-sm-6">
+              <address>
+                İstanbul Şehir University
+                <br>
+                Altunizade Mah. Oymacı Sok. No: 15
+                <br>
+                34660 Istanbul, Turkey
+                <br>
+                Email: <a href="mailto:cs@sehir.edu.tr">cs@sehir.edu.tr</a>
+                <br>
+                <abbr title="Phone">Phone:</abbr>
+                (+90) 44 44 0 34
+              </address>
+            </div>
+            <div class="col-sm-6">
+              <div class="col-md-4">
+                <a href="https://www.linkedin.com/groups/8456321" target="_blank">
+                  <i class="icon-linkedin icon-social"></i>
+                  Linkedin
+                </a>
+              </div>
+              <div class="col-md-4">
+                <a href="https://twitter.com/sehir_cs" target="_blank">
+                  <i class="icon-twitter icon-social"></i>
+                  Twitter
+                </a>
+              </div>
+              <div class="col-md-4">
+                <a href="https://www.youtube.com/channel/UCTAFsvpKz2IzTk4unPk2rbQ" target="_blank">
+                  <i class="icon-youtube icon-social"></i>
+                  Youtube
+                </a>
+              </div>
+            </div>
+          </div>
+          <!--/.row-->
+        </div>
+        <!--/.box-->
+      </div>
+      <!--/.container-->
+    </section>
+    <!--/#contact-->
+    <script src="/static/home/js/jquery.js"></script>
+    <script src="/static/home/js/bootstrap.min.js"></script>
+    <script src="/static/home/js/jquery.isotope.min.js"></script>
+    <script src="/static/home/js/jquery.prettyPhoto.js"></script>
+    <script src="/static/home/js/main.js"></script>
+    {% block js %}
+    {% endblock %}
+    <script>
+      (function(i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function() {
+          (i[r].q = i[r].q || []).push(arguments)
+        },
+        i[r].l = 1 * new Date();
+        a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+      })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+      ga('create', 'UA-71666019-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+  </body>
+
+</html>

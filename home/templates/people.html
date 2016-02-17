@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}
+{% trans "People" %}
+{% endblock %}
+
+{% block content %}
+<section id="people">
+  <div class="container">
+    <div class="box first">
+      <div class="center">
+        <h3 class="small-gap">
+          {% trans "People" %}</h3>
+        {% for i in faculty %}
+        <div class="row">
+          {% for j in i %}
+          <div class="col-sm-4 small-gap">
+            <div class="member">
+              <p>
+                <a href="{% url 'home:profile' j.id j.first_name j.last_name %}">
+                  <img class="img-responsive img-thumbnail img-circle" src="{{ MEDIA_URL }}{{ j.image }}" alt="">
+                </a>
+              </p>
+              <h4>
+                <a href="{% url 'home:profile' j.id j.first_name j.last_name %}">
+                  {{ j.first_name }}
+                  {{ j.middle_name }}
+                  {{ j.last_name }}
+                </a>
+              </h4>
+              <p>
+                {% trans j.title %}
+
+                {% if j.visit %}
+                ({% trans "Visiting" %})
+                {% endif %}
+
+                {% if j.leave %}
+                ({% trans "On Leave" %})
+                {% endif %}
+
+                {% if j.chair %}
+                ({% trans "Chair" %})
+                {% endif %}
+              </p>
+              <p>
+                {% trans "PhD" %},
+                {{ j.phd }}</p>
+              <p>{{ j.interest }}</p>
+              <p>
+                <a href="mailto:{{ j.email }}">
+                  {{ j.email }}
+                </a>
+              </p>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+        {% endfor %}
+      </div>
+      <!--/.center-->
+    </div>
+    <!--/.box-->
+  </div>
+  <!--/.container-->
+</section>
+<!--/#portfolio-->
+{% endblock %}

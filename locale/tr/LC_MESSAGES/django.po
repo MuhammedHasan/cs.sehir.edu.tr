@@ -1,0 +1,235 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR hasancelik@std.sehir.edu.tr, 2015.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-11-04 20:48+0000\n"
+"PO-Revision-Date: 2015-11-04 20:50+0000\n"
+"Last-Translator:   <admin@admin.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: Turkish\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Translated-Using: django-rosetta 0.7.6\n"
+
+#: home/templates/base.html:41
+msgid "Department of <br> Computer Science"
+msgstr "Bilgisayar <br> Mühendisliği"
+
+#: home/templates/base.html:54
+msgid "About"
+msgstr "Hakkında"
+
+#: home/templates/base.html:57 home/templates/people.html:6
+msgid "People"
+msgstr "Kişiler"
+
+#: home/templates/base.html:60 home/templates/index.html:120
+#: home/templates/index.html.py:124 home/templates/programsOverview.html:6
+msgid "Programs"
+msgstr "Programlar"
+
+#: home/templates/base.html:64 home/templates/index.html:22
+msgid "Research"
+msgstr "Araştırma"
+
+#: home/templates/base.html:68 home/templates/research.html:6
+msgid "Research Projects"
+msgstr "Araştırma Projeleri"
+
+#: home/templates/base.html:70 home/templates/researchGroup.html:6
+msgid "Research Groups"
+msgstr "Araştırma Grupları"
+
+#: home/templates/base.html:73 home/templates/industrial.html:6
+msgid "Industrial Relations"
+msgstr "Endustriyal İlışkiler"
+
+#: home/templates/base.html:74 home/templates/index.html:156
+#: home/templates/index.html.py:160
+msgid "News"
+msgstr "Haberler"
+
+#: home/templates/base.html:88
+msgid "Our Address"
+msgstr "Adresimiz"
+
+#: home/templates/base.html:90
+msgid "Istanbul Sehir University"
+msgstr "İstanbul Şehir Üniversitesi"
+
+#: home/templates/base.html:91
+msgid "Kusbakisi Street No: 27 34662"
+msgstr "Kuşbakışı Caddesi No:27 34662"
+
+#: home/templates/base.html:92
+msgid "Altunizade – Uskudar – Istanbul"
+msgstr "Altunizade - Üsküdar - İstanbul"
+
+#: home/templates/base.html:98
+msgid "Connect with us"
+msgstr "Bizi takip edin"
+
+#: home/templates/index.html:66 home/templates/index.html:70
+msgid "Faculty"
+msgstr "Kişiler"
+
+#: home/templates/newsEventsOverview.html:6
+msgid "News and Events"
+msgstr "Haberler ve Duyurular"
+
+#: home/templates/people.html:28
+msgid "Visiting"
+msgstr "Misafir Öğretim Üyesi"
+
+#: home/urls.py:7
+msgid "^about/$"
+msgstr "^hakkinda/$"
+
+#: home/urls.py:8
+msgid "^people/$"
+msgstr "^kişiler/$"
+
+#: home/urls.py:9
+msgid "^profile/(?P<id>.+?)/(?P<first_name>.+?)-(?P<last_name>.+?)/$"
+msgstr "^profil/(?P<id>.+?)/(?P<first_name>.+?)-(?P<last_name>.+?)/$"
+
+#: home/urls.py:11
+msgid "^program-overview/$"
+msgstr "^program-genel-bakis/$"
+
+#: home/urls.py:13
+msgid "^research/$"
+msgstr "^arastirma/$"
+
+#: home/urls.py:14
+msgid "^news-events-overview/$"
+msgstr "^haber-duyuru-genel-bakis/$"
+
+#: home/urls.py:16
+msgid "^news-event/(?P<id>.+?)/$"
+msgstr "haber-duyuru/(?P<id>.+?)/$"
+
+#: home/urls.py:17
+msgid "^research-group/$"
+msgstr "^arastirma-group/$"
+
+#: home/urls.py:18
+msgid "^industrial-relations/$"
+msgstr "endustriyal-iliskiler"
+
+
+msgid "Assistant Professor"
+msgstr "Yrd. Doç. Dr."
+
+msgid "Professor"
+msgstr "Profesör"
+
+msgid "PhD"
+msgstr "Doktora"
+
+msgid "Office"
+msgstr "Ofis"
+
+msgid "Phone"
+msgstr "Telefon"
+
+msgid "Personal Website"
+msgstr "Kişisel Web Sayfası"
+
+msgid "Bio"
+msgstr "Biyografi"
+
+msgid "Research Interests"
+msgstr "Araştırma Alanları"
+
+msgid "Funded projects"
+msgstr "Fonlanan Projeler"
+
+msgid "Member of research Groups"
+msgstr "Araştırma Grupları"
+
+msgid "Publications"
+msgstr "Yayınlar"
+
+msgid "Flat List"
+msgstr "Düz Liste"
+
+msgid "Group by Year"
+msgstr "Tarihe Göre Sırala"
+
+msgid "Group by Publication Type"
+msgstr "Yayın Türüne Göre Sırala"
+
+msgid "Sort by Citation Count"
+msgstr "Atıf Sayısına Göre Sırala"
+
+msgid "Citations"
+msgstr "Atıf"
+
+msgid "Citation"
+msgstr "Atıf"
+
+msgid "On Leave"
+msgstr "İzinli"
+
+msgid "Journal Paper(s)"
+msgstr "Dergi Makaleleri"
+
+msgid "Conference - Workshop Paper(s)"
+msgstr "Konferans ve Çalıştay Makaleleri"
+
+msgid "Patent(s)"
+msgstr "Patentler"
+
+msgid "Book Chapter(s)"
+msgstr "Kitap Bölümleri"
+
+msgid "Book(s)"
+msgstr "Kitaplar"
+
+msgid "Graduate Programs"
+msgstr "Yüksek Lisans Programları"
+
+msgid "Undergraduate Programs"
+msgstr "Lisans Programları"
+
+msgid "Ongoing Projects"
+msgstr "Devam Eden Projeler"
+
+msgid "Completed Projects"
+msgstr "Tamamlanmış Projeler"
+
+msgid "Project Summaries"
+msgstr "Proje Özetleri"
+
+msgid "Funding Institution"
+msgstr "Sponsor"
+
+msgid "Principal Investigator"
+msgstr "Yürütücü"
+
+msgid "CS in Numbers"
+msgstr "Sayılarla Bilgisayar Mühendisliği"
+
+msgid "Chair"
+msgstr "Bölüm Başkanı"
+
+msgid "Computer Science"
+msgstr "Bilgisayar Mühendisliği"
+
+msgid "Home"
+msgstr "Anasayfa"
+
+msgid "click here"
+msgstr "buraya tıklayın"
+
+msgid "For more details, please"
+msgstr "Daha fazla bilgi için lütfen"

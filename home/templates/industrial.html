@@ -1,0 +1,36 @@
+{% extends 'base.html' %} {% load i18n %} {% block content %}
+<section>
+  <div class="container">
+    <div class="box first">
+      <div class="center small-gap">
+        <h3>{% trans "Industrial Relations" %} </h3>
+      </div>
+      <!--/.center-->
+      {% for i in industrial %}
+      <div class="row">
+        {% for j in i %}
+        <div class="col-md-4">
+          <a href="{{ j.website }}">
+            <div>
+              {% if j.logo %}
+              <img src="/media/{{ j.logo }}" alt="" class="img-responsive" /> {% endif %}
+            </div>
+            <div class="text-center">
+              <h4>
+                <strong>
+                  {{ j.name }}
+                </strong>
+              </h4>
+            </div>
+          </a>
+        </div>
+        {% endfor %}
+      </div>
+      {% endfor %}
+    </div>
+    <!--/.box-->
+  </div>
+  <!--/.container-->
+</section>
+<!--/#portfolio-->
+{% endblock %}

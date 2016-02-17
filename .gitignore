@@ -1,0 +1,11 @@
+#Pycharm
+.idea/*
+
+#Python
+*.py[cod]
+
+#Django
+*.log
+*.sqlite3
+migrations*
+static/*

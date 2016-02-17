@@ -1,0 +1,187 @@
+[
+{
+    "fields": {
+        "username": "admin",
+        "first_name": "",
+        "last_name": "",
+        "is_active": true,
+        "is_superuser": true,
+        "is_staff": true,
+        "last_login": "2016-02-02T09:38:42Z",
+        "groups": [],
+        "user_permissions": [],
+        "password": "pbkdf2_sha256$20000$CUDqnP7N7jKw$+YlD4ZTnb2hx2CLqZq2m6ccrbGGITIdE0SH1CgjDono=",
+        "email": "",
+        "date_joined": "2015-10-12T15:10:42Z"
+    },
+    "model": "auth.user",
+    "pk": 1
+},
+{
+    "fields": {
+        "last_name": "test",
+        "office": "test",
+        "image": "",
+        "linkedin": "",
+        "chair": false,
+        "first_name": "test",
+        "middle_name": "",
+        "title": "Professor",
+        "visit": false,
+        "interest": "test",
+        "twitter": "",
+        "website": "",
+        "bio": "test",
+        "bio_tr": "test",
+        "is_active": false,
+        "bio_en": "test",
+        "phd": "test",
+        "phone": "test",
+        "google_scholar": "",
+        "CV": "",
+        "vice_chair": false,
+        "DBLP": "",
+        "interest_tr": "test",
+        "email": "hasancelik@std.sehir.edu.tr",
+        "leave": false,
+        "interest_en": "test"
+    },
+    "model": "home.facultymember",
+    "pk": 10
+},
+{
+    "fields": {
+        "last_name": "member",
+        "office": "css floar 3",
+        "image": "img/profile/07-css-man-pure-icon-design-1.jpg",
+        "linkedin": "",
+        "chair": false,
+        "first_name": "A faculty ",
+        "middle_name": "",
+        "title": "Professor",
+        "visit": false,
+        "interest": "CSS, HTML, javascript, fronted development",
+        "twitter": "",
+        "website": "",
+        "bio": "he HAVE phd degree in University of CSS.",
+        "bio_tr": "he HAVE phd degree in University of CSS.",
+        "is_active": true,
+        "bio_en": "he HAVE phd degree in University of CSS.",
+        "phd": "University of CSS",
+        "phone": "5",
+        "google_scholar": "",
+        "CV": "",
+        "vice_chair": false,
+        "DBLP": "",
+        "interest_tr": "CSS, HTML, javascript, fronted development",
+        "email": "afaculty@member.com",
+        "leave": false,
+        "interest_en": "CSS, HTML, javascript, fronted development"
+    },
+    "model": "home.facultymember",
+    "pk": 11
+},
+{
+    "fields": {
+        "website": "",
+        "funding_institution": "sehir university",
+        "abstract_tr": "cs.edu.tr",
+        "end_date": "2099-03-27",
+        "title_tr": "cs.edu.tr",
+        "principal_investigator": 11,
+        "poster": "img/project/imgres.jpg",
+        "abstract": "cs.edu.tr",
+        "title": "cs.edu.tr",
+        "title_en": "cs.edu.tr",
+        "budget": "-1000",
+        "abstract_en": "cs.edu.tr",
+        "in_spot_light": true,
+        "start_date": "2016-02-01",
+        "researchers": [
+            11
+        ]
+    },
+    "model": "home.project",
+    "pk": 18
+},
+{
+    "fields": {
+        "website": "",
+        "logo": "img/logo/07-css-man-pure-icon-design-1.jpg",
+        "name": "css research team",
+        "members": [
+            11
+        ]
+    },
+    "model": "home.researchgroup",
+    "pk": 6
+},
+{
+    "fields": {
+        "description": "css",
+        "title_tr": "css",
+        "poster": "img/news/07-css-man-pure-icon-design-1.jpg",
+        "title": "css",
+        "title_en": "css",
+        "description_en": "css",
+        "link": "",
+        "date": "2016-02-17",
+        "description_tr": "css"
+    },
+    "model": "home.newsevent",
+    "pk": 19
+},
+{
+    "fields": {
+        "image": "img/programs/07-css-man-pure-icon-design-1.jpg",
+        "title_tr": "Css",
+        "title_en": "Css",
+        "type_of": "Graduate",
+        "title": "Css"
+    },
+    "model": "home.program",
+    "pk": 4
+},
+{
+    "fields": {
+        "text_tr": "css",
+        "title_tr": "css",
+        "text": "cs",
+        "title": "css",
+        "title_en": "css",
+        "text_en": "cs",
+        "program": 4
+    },
+    "model": "home.programsubfield",
+    "pk": 19
+},
+{
+    "fields": {
+        "text": "<p style=\"color:red;\"> Some text (html allowed) </p> ",
+        "text_tr": "<p style=\"color:red;\"> Some text (html allowed) </p> ",
+        "text_en": "<p style=\"color:red;\"> Some text (html allowed) </p> ",
+        "title": "About"
+    },
+    "model": "home.othertext",
+    "pk": 1
+},
+{
+    "fields": {
+        "text": "<p style=\"color:red;\"> Some text (html allowed) </p> ",
+        "text_tr": "<p style=\"color:red;\"> Some text (html allowed) </p> ",
+        "text_en": "<p style=\"color:red;\"> Some text (html allowed) </p> ",
+        "title": "cs in numbers"
+    },
+    "model": "home.othertext",
+    "pk": 2
+},
+{
+    "fields": {
+        "website": "http://www.ibm.com/",
+        "logo": "img/industrial/IBM-logo.jpg",
+        "name": "IBM"
+    },
+    "model": "home.industrialrelations",
+    "pk": 1
+}
+]

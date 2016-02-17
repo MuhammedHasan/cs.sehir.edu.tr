@@ -1,0 +1,26 @@
+{% extends 'base.html' %} {% load i18n %}
+
+{% block title %}
+  {% trans "Programs" %}
+{% endblock %}
+
+{% block content %}
+<section>
+  <div class="container">
+    <div class="box first">
+      <div class="center  small-gap">
+        <h3> {% trans "Programs" %} </h3>
+      </div>
+      <h3 class="bold">{% trans "Graduate Programs" %}</h3>
+      <hr> {% for i in graduate %} {% include "partials/program.html" %} {% endfor %}
+      <br>
+      <h3 class="bold">{% trans "Undergraduate Programs" %}</h3>
+      <hr> {% for i in undergraduate %} {% include "partials/program.html" %} {% endfor %}
+      <!--/.center-->
+    </div>
+    <!--/.box-->
+  </div>
+  <!--/.container-->
+</section>
+<!--/#portfolio-->
+{% endblock %}

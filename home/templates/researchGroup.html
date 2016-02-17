@@ -1,0 +1,51 @@
+{% extends 'base.html' %} {% load i18n %}
+
+{% block title %}
+  {% trans "Research Groups" %}
+{% endblock %}
+
+{% block content %}
+<section>
+  <div class="container">
+    <div class="box first">
+      <div class="center small-gap">
+        <h3>{% trans "Research Groups" %} </h3>
+      </div>
+      <!--/.center-->
+      <div class="row">
+        <ul class="list-group">
+          {% for i in group %}
+          <li class="list-group-item">
+            <div class="row">
+              <div class="col-md-1 col-xs-2">
+		          {% if i.logo %}
+                <img src="/media/{{ i.logo }}" alt="" class="img-responsive img-thumbnail" />
+		          {% endif %}
+              </div>
+              <div class="col-md-11 col-xs-10">
+                <h4>
+                  <a href="{{ i.website }}">
+                    <strong>
+                      {{ i.name }}
+                    </strong>
+                  </a>
+                </h4>
+                <p>
+                  <span class="bold">{% trans "Faculty" %}:</span>
+		   {% for j in i.members.all %}
+	            {{ j.first_name }} {{ j.middle_name }} {{ j.last_name }}{% if forloop.last %} {% else %}, {% endif %}
+		   {% endfor %}
+                </p>
+              </div>
+            </div>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+    <!--/.box-->
+  </div>
+  <!--/.container-->
+</section>
+<!--/#portfolio-->
+{% endblock %}
